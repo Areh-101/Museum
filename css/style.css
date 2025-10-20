@@ -249,3 +249,60 @@ h2 {
   font-size: 1rem;
   color: #666;
 }
+
+/* === Staff Page Styling === */
+.staff-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+  padding: 2rem;
+  justify-items: center;
+  text-align: center;
+}
+
+.staff-member {
+  background-color: #fff;
+  padding: 2rem 1.5rem;
+  border-radius: 14px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  max-width: 320px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.staff-member:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.staff-member img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.staff-member h3 {
+  font-size: 1.4rem;
+  color: #222;
+  margin-bottom: 0.3rem;
+}
+
+.staff-member .role {
+  font-weight: bold;
+  color: #8b0000; /* deep red accent */
+  margin-bottom: 0.8rem;
+}
+
+.staff-member .bio {
+  font-size: 0.95rem;
+  color: #444;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.staff-member blockquote {
+  font-style: italic;
+  color: #555;
+  border-left: 3px solid #8b0000;
+  padding-left: 10px;
+  margin: 0;
+}
