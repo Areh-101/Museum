@@ -1,18 +1,22 @@
+alert("SCRIPT IS LOADED");
 document.addEventListener("DOMContentLoaded", () => {
   console.log("✅ JS Loaded");
 
-  // ✅ Highlight active page in nav
   const navLinks = document.querySelectorAll("nav a, nav button");
 
   navLinks.forEach(link => {
     const currentPage = window.location.pathname.split("/").pop();
-    const targetPage = link.getAttribute("onclick")?.match(/'(.+)'/)?.[1] || "";
+    const targetPage =
+      link.getAttribute("onclick")?.match(/'(.+)'/)?.[1] ||
+      link.getAttribute("href")?.split("/").pop() ||
+      "";
+
     if (targetPage === currentPage) {
       link.classList.add("is-active");
     }
   });
 
-  // ✅ Collections Page Tabs Support
+  // Tab Switching
   const archBtn = document.querySelector("#tab-arch");
   const anthBtn = document.querySelector("#tab-anth");
   const archSection = document.querySelector("#archeology");
@@ -32,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (archBtn) archBtn.addEventListener("click", () => showSection("archeology"));
   if (anthBtn) anthBtn.addEventListener("click", () => showSection("anthropology"));
 
-  // ✅ Expand/Collapse "Details" on Collections
+  // Expand/Collapse
   const toggleButtons = document.querySelectorAll(".toggle-meta");
 
   toggleButtons.forEach(btn => {
@@ -45,19 +49,5 @@ document.addEventListener("DOMContentLoaded", () => {
       btn.setAttribute("aria-expanded", !expanded);
       metaBox.classList.toggle("is-hidden");
     });
-  });
-
-  // ✅ Optional: Scroll to top button
-  const backToTop = document.createElement("button");
-  backToTop.textContent = "↑ Top";
-  backToTop.className = "back-to-top";
-  document.body.appendChild(backToTop);
-
-  backToTop.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
-
-  window.addEventListener("scroll", () => {
-    backToTop.style.display = window.scrollY > 300 ? "block" : "none";
   });
 });

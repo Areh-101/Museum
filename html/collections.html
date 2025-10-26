@@ -1,24 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="Your Name">
-  <meta name="description" content="Apartheid & Cultural Memory collection for the Museum of Cultural Memory.">
-  <meta name="robots" content="noindex, nofollow">
-  <title>Apartheid & Cultural Memory | Museum of Cultural Memory</title>
-  <link rel="stylesheet" href="../css/style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Collections • Museum of Apartheid</title>
+  <link rel="stylesheet" href="../css/style.css" />
 </head>
-
 <body>
-  <header>
-    <h1>Museum of Cultural Memory</h1>
-    <nav>
+  <header class="site-header">
+    <h1>Museum of Apartheid</h1>
+    <nav class="main-nav" aria-label="Main">
       <button onclick="location.href='../index.html'">Home</button>
       <button onclick="location.href='staff.html'">Staff</button>
-      <button onclick="location.href='collections.html'">Collections</button>
-      <button onclick="location.href='history.html'">History</button>
+      <button class="is-active" onclick="location.href='collections.html'">Collections</button>
+      <button onclick="document.getElementById('freedom').scrollIntoView({behavior:'smooth'})">Freedom Exhibit</button>
+      <button onclick="alert('Login is disabled in the classroom demo.')">Login</button>
     </nav>
-  
+
+    <div class="subnav subnav-vertical" role="tablist" aria-label="Collections categories">
+      <button id="tab-arch" role="tab" aria-controls="panel-arch" aria-selected="true"
+        onclick="showSection('archeology')">Archeology — The Tools of Control</button>
+      <button id="tab-anth" role="tab" aria-controls="panel-anth" aria-selected="false"
+        onclick="showSection('anthropology')">Anthropology — The Culture of Resistance</button>
+    </div>
+  </header>
+
+  <section class="ai-banner" aria-label="AI statement">
+    <p>
+      This gallery combines publicly available archival photographs with classroom-created imagery. 
+      Content was curated, reviewed, and edited by a human before publication for academic purposes.
+    </p>
+  </section>
+
+  <main class="collections">
+    <p class="lede">Click any artifact to reveal the full research record. Use the horizontal tabs to switch categories.</p>
+
+    <!-- Archeology Section -->
+    <section id="archeology" class="collection-section" style="display: block;">
+
+      <article class="artifact-card">
+        <figure class="artifact-hero">
+          <img class="artifact-image" src="../images/collections/apartheid_dompas.jpeg" alt="Light-brown apartheid passbook, the internal identity booklet" />
+        </figure>
+
+        <div class="artifact-info">
+          <h3>Apartheid Passbook (Dompas)</h3>
+          <p class="summary">Mandated internal passport that governed where Black South Africans could live and work.</p>
+
+          <button class="toggle-meta" aria-expanded="false" data-target="meta-passbook">Details</button>
+
+          <div id="meta-passbook" class="meta is-hidden">
+            <dl>
+              <dt>Name</dt><dd>Apartheid Passbook (Dompas)</dd>
+              <dt>Material</dt><dd>Cardboard cover; paper pages; ink stamps; staples</dd>
+              <dt>Size/Weight/Shape</dt><dd>Approx. 15×10 cm; booklet</dd>
+              <dt>Physical Properties</dt><dd>ID photo, fingerprints, employer permits, serial numbers</dd>
+              <dt>Estimated Age</dt><dd>c. 1960–1986 (typography & stamp series)</dd>
+              <dt>Preservation State</dt><dd>Worn edges; creases; fading ink</dd>
+              <dt>Location Found</dt><dd>Private archive donation, Johannesburg</dd>
+              <dt>Likely Purpose</dt><dd>Control of movement, residency, and labor</dd>
+              <dt>Evidence of Use</dt><dd>Oily thumb marks; repeated embossing on permit pages</dd>
+              <dt>Manufacture Clues</dt><dd>Standardized forms; government seals</dd>
+              <dt>Found With</dt><dd>Permit receipts; violation tickets</dd>
+              <dt>Symbolism</dt><dd>Surveillance and restricted citizenship</dd>
+            </dl>
+          </div>
+        </div>
+      </article>
+
+      <article class="artifact-card">
+        <figure class="artifact-hero">
+          <img class="artifact-image" src="../images/collections/Police_baton.jpeg" alt="Hardwood police baton photographed on an archive table" />
+        </figure>
+        <div class="artifact-info">
+          <h3>Police Baton</h3>
+          <p class="summary">Standard-issue hardwood truncheon associated with riot-control policing.</p>
+          <button class="toggle-meta" aria-expanded="false" data-target="meta-baton">Details</button>
+
+          <div id="meta-baton" class="meta is-hidden">
+            <dl>
+              <dt>Name</dt><dd>South African Police baton</dd>
+              <dt>Material</dt><dd>Hardwood; varnish; leather strap</dd>
+              <dt>Estimated Age</dt><dd>c. 1975–1989</dd>
+              <dt>Symbolism</dt><dd>State coercive power</dd>
+            </dl>
+          </div>
+        </div>
+      </article>
+
+      <article class="artifact-card">
+        <figure class="artifact-hero">
+          <img class="artifact-image" src="../images/collections/prison_banner_johannesburg.jpeg" alt="Handmade resistance banner with scripture reference Hebrews 13:3" />
+        </figure>
+        <div class="artifact-info">
+          <h3>Resistance Screen-Print Poster</h3>
+          <p class="summary">Grassroots print culture that announced meetings, vigils, and campaigns.</p>
+          <button class="toggle-meta" aria-expanded="false" data-target="meta-poster">Details</button>
+          <div id="meta-poster" class="meta is-hidden">
+            <dl>
+              <dt>Name</dt><dd>Community Solidarity Poster</dd>
+              <dt>Material</dt><dd>Recycled paper; water-based inks</dd>
+              <dt>Estimated Age</dt><dd>c. 1980–1990</dd>
+              <dt>Symbolism</dt><dd>Collective voice and spiritual care</dd>
+            </dl>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- Anthropology Section -->
+    <section id="anthropology" class="collection-section" style="display: none;">
+      <article class="artifact-card">
+        <figure class="artifact-hero">
+          <img class="artifact-image" src="../images/collections/student-armband.jpeg" alt="Black cloth protest armband on aged paper background" />
+        </figure>
+        <div class="artifact-info">
+          <h3>Student Protest Armband</h3>
+          <p class="summary">Cloth band worn to signal strike participation and collective identity.</p>
+          <button class="toggle-meta" aria-expanded="false" data-target="meta-armband">Details</button>
+          <div id="meta-armband" class="meta is-hidden">
+            <dl>
+              <dt>Name</dt><dd>Solidarity Armband</dd>
+              <dt>Material</dt><dd>Cotton twill</dd>
+              <dt>Estimated Age</dt><dd>c. 1985–1989</dd>
+              <dt>Symbolism</dt><dd>Unity, youth agency, mourning</dd>
+            </dl>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- The Freedom Exhibit -->
+    <section id="freedom" class="freedom-exhibit">
+      <h2 id="freedom-title">The Freedom Exhibit</h2>
+      <p class="freedom-sub">
+        A visual chronicle of daily life, protest, and the path toward democracy.
+        </p>
+        
+          <div class="gallery">
+    <figure>
+      <img src="../images/collections/overcrowded_train.jpeg" alt="Commuters crowding into train carriages" />
+      <figcaption>Daily travel under segregation.</figcaption>
+    </figure>
+
+    <figure>
+      <img src="../images/collections/student_protest_arrest.jpeg" alt="Young person detained by police" />
+      <figcaption>Risk to ordinary citizens during demonstrations.</figcaption>
+    </figure>
+
+    <figure>
+      <img src="../images/collections/uct_teargas_protest.jpeg" alt="Protesters running through teargas" />
+      <figcaption>Teargas dispersal as crowd-control.</figcaption>
+    </figure>
+
+    <figure>
+      <img src="../images/collections/sinton_high_protest.jpeg" alt="Police discharging firearms" />
+      <figcaption>Escalation of force documented by journalists.</figcaption>
+    </figure>
+
+    <figure>
+      <img src="../images/collections/mandela_anc_delegation.jpeg" alt="Leaders walking together during negotiations" />
+      <figcaption>Steps toward a democratic future.</figcaption>
+    </figure>
+  </div>
+
+  <p class="freedom text">
+        The Freedom exhibit represents the long and difficult journey South Africans took to reclaim
+          their basic human rights. It highlights the power of unity, resilience, and hope as people from 
+          all backgrounds stood together to challenge unjust laws and dismantle apartheid. Through protests,
+          powerful speeches, and acts of courage, the oppressed demanded equality, dignity, and the right
+          to choose their own futures. The exhibit reminds us that freedom did not arrive overnight,
+          many sacrificed their own safety and even their lives so that future generations could live without segregation 
+          or fear. It encourages us to honor their bravery and to protect freedom wherever it may be threatened.  
+
+      </p>
+    </section>
+  </main>
+
+  <footer class="grading-footer">
+    The content on this page was collaboratively produced by AI technology under human direction.
+  </footer>
+
+  <script src="../js/script.js"></script>
 </body>
 </html>
+
+
+
+
