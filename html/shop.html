@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Souvenir Shop • Museum of Cultural Memory</title>
+
+  <!-- Link to your main museum CSS file -->
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    /* ✅ Only shop-specific layout overrides */
+    body {
+      background-color: #EDEDED; /* neutral light tone */
+      color: #0D0D0F;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .page-hero {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .shop-container {
+      max-width: 1100px;
+      margin: 0 auto 50px;
+      display: grid;
+      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    }
+
+    .souvenir-item {
+      background: #ffffff;
+      border: 1px solid #CCCCCC;
+      border-radius: 8px;
+      padding: 14px;
+      box-shadow: 0px 4px 14px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+
+    .souvenir-item img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .souvenir-item button {
+      background: #2E5AAC; /* museum blue */
+      color: #ffffff;
+      border: none;
+      width: 100%;
+      padding: 10px;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .souvenir-item button:hover {
+      background: #1E3C70;
+    }
+
+    /* Modal styling kept simple */
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      z-index: 10000;
+      padding: 6vw;
+    }
+
+    .modal-content {
+      max-width: 900px;
+      margin: auto;
+      background: #fff;
+      padding: 18px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ✅ Your dark museum nav is intact -->
+  <header class="site-header">
+      <h1>Museum of Cultural Memory</h1>
+      <nav class="main-nav">
+        <button onclick="location.href='../index.html'">Home</button>
+        <button onclick="location.href='html/staff.html'">Staff</button>
+        <button onclick="location.href='html/collections.html'">Collections</button>
+        <button class="is-active" onclick="location.href='html/shop.html'">Shop</button>
+      </nav>
+  </header>
+
+  <section class="page-hero">
+    <h1>Souvenir Shop</h1>
+    <p>Support history. Celebrate freedom. Take home a story.</p>
+  </section>
+
+  <main class="shop-container">
+    
+    <div class="souvenir-item" data-id="item001">
+      <img src="../images/shop/armband.jpeg" alt="Freedom Resistance Armband" onclick="openModal(this)">
+      <h3>Freedom Resistance Armband</h3>
+      <p>$12.99</p>
+      <button onclick="addToCart('item001')">Add to Cart</button>
+    </div>
+
+    <div class="souvenir-item" data-id="item002">
+      <img src="../images/shop/keychain.jpeg" alt="Dompas Keychain" onclick="openModal(this)">
+      <h3>Dompas Identity Keychain</h3>
+      <p>$9.99</p>
+      <button onclick="addToCart('item002')">Add to Cart</button>
+    </div>
+
+    <div class="souvenir-item" data-id="item003">
+      <img src="../images/shop/amandla-pin.jpeg" alt="Unity Amandla Pin" onclick="openModal(this)">
+      <h3>Unity Pin — AMANDLA!</h3>
+      <p>$7.49</p>
+      <button onclick="addToCart('item003')">Add to Cart</button>
+    </div>
+
+    <div class="souvenir-item" data-id="item004">
+      <img src="../images/shop/postcard.jpeg" alt="Freedom Postcard" onclick="openModal(this)">
+      <h3>The Road to Freedom Postcard</h3>
+      <p>$3.99</p>
+      <button onclick="addToCart('item004')">Add to Cart</button>
+    </div>
+
+  </main>
+
+  <!-- Modal -->
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeModal()">&times;</span>
+      <img id="modal-image" src="">
+    </div>
+  </div>
+
+  <script>
+    function addToCart(item) {
+      alert(item + " added — Cart coming soon!");
+    }
+
+    function openModal(img) {
+      document.getElementById("modal-image").src = img.src;
+      document.getElementById("modal").style.display = "block";
+    }
+
+    function closeModal() {
+      document.getElementById("modal").style.display = "none";
+    }
+  </script>
+
+</body>
+</html>
